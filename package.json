@@ -12,8 +12,7 @@
     "opusscript": "^0.0.7"
   },
   "engines": {
-    "node": "v10.15.3",
-    "npm": "v12.2.0"
+    "node": "v10.15.3"
   },
   "devDependencies": {},
   "scripts": {
