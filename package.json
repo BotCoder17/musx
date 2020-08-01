@@ -1,0 +1,28 @@
+{
+  "name": "savannah-music",
+  "version": "1.7.5",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "express": "^4.17.1",
+    "ytdl-core": "^3.2.0",
+    "request": "^2.88.2",
+    "yt-search": "^2.1.8",
+    "node-opus": "^0.3.3",
+    "opusscript": "^0.0.7"
+  },
+  "engines": {
+    "node": "v10.15.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "someone",
+  "license": "MIT",
+  "repository": {
+    "url": "https://glitch.com/edit/#!/savannah-music-girl"
+  },
+  "keywords": [],
+  "description": ""
+}
