@@ -18,7 +18,7 @@ setInterval(() => {
 
 client.login(process.env.TOKEN);
 client.on("message", msg => {
-  if(msg.content == 'play'){
+
   msg.member.voice.channel
     .join()
     .then(connection => {
@@ -32,5 +32,5 @@ client.on("message", msg => {
       const dispatcher = connection.play(broadcast);
     })
     .catch(console.error);
-  }
+  
 });
