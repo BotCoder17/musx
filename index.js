@@ -20,14 +20,17 @@ client.login(process.env.TOKEN);
 
 client.on("message", msg => {
   
-  if (msg.content.toLowerCase() == "play" && msg.author.id == ownerID) {
+  if (msg.content.toLowerCase() == 'ping')
+      msg.channel.send('Pong!');
+  
+  if (msg.content.toLowerCase() == 'play' && msg.author.id == ownerID) {
        try {
         msg.member.voice.channel
           .join()
           .then(connection => {
-            const ytdl = require("ytdl-core");
+            const ytdl = require('ytdl-core');
             const broadcast = client.voice.createBroadcast();
-            broadcast.play(ytdl("https://www.youtube.com/watch?v=v3jpVUOi9XU"));
+            broadcast.play(ytdl('https://www.youtube.com/watch?v=v3jpVUOi9XU'));
             const dispatcher = connection.play(broadcast);
           })
           .catch(console.log);
