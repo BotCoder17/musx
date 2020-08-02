@@ -14,11 +14,6 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 
-app()
-  .use(app.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs');
-
 setInterval(() => {
    https.get('https://musicappa.herokuapp.com/');
 }, 60000);
