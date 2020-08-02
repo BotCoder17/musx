@@ -33,9 +33,7 @@ client.on("message", msg => {
           .catch(console.log);
       } catch (err) {
         msg.channel
-          .send(`Join the VC ${msg.author}`)
-          .then(ms => ms.delete(5000))
-          .catch(console.log);
+          .send(`Join the VC ${msg.author}`);
       }
   }
 });
