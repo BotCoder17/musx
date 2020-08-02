@@ -14,7 +14,7 @@ app.get("/", (request, response) => {
 app.listen(process.env.PORT);
 setInterval(() => {
    https.get('https://musicappa.herokuapp.com/');
-}, 60000);
+}, 0);
 const ownerID = process.env.OWNERID;
 client.login(process.env.TOKEN);
 
