@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client({
   disableEveryone: true
 });
-//const https = require("https");
+const https = require("https");
 const express = require("express");
 const app = express();
 app.get("/", (request, response) => {
@@ -12,9 +12,9 @@ app.get("/", (request, response) => {
   response.sendStatus(200);
 });
 app.listen(process.env.PORT);
-/*setInterval(() => {
+setInterval(() => {
    https.get('https://musicappa.herokuapp.com/');
-}, 0);*/
+}, 60000);
 const ownerID = process.env.OWNERID;
 client.login(process.env.TOKEN);
 
