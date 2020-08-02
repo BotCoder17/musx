@@ -18,16 +18,12 @@ module.exports = {
       }
     },
     {
-      name: "player",
+      name: "play",
       script: "./app/music/play.js"
     },
     {
       name: "dc",
       script: "./app/music/leave.js"
-    },
-    {
-      name: "res",
-      script: "./app/owner/restart.js"
     }
   ]
 };
