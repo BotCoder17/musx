@@ -10,20 +10,9 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 
-/*setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 60000);*/
-
-/*const pm2 = require("pm2");
-pm2.start({
-  name : "max_mem",
-  script : "/app/index.js",
-  exec_interpreter : "node",
-  exec_mode : "fork_mode",
-  max_memory_restart : "20M"
-}, function(err, proc) {
-   console.log(proc)
-});*/
+setInterval(() => {
+  http.get(`http://musicappa.herokuapp.com/`);
+}, 60000);
 
 const ownerID = process.env.OWNERID;
 
