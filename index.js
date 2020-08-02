@@ -1,45 +1,57 @@
-'use strict';
-
 const Discord = require("discord.js");
 const client = new Discord.Client({
   disableEveryone: true
 });
-const https = require("https");
+const http = require("http");
 const express = require("express");
-const path = require('path');
 const app = express();
-
 app.get("/", (request, response) => {
   response.sendStatus(200);
 });
 app.listen(process.env.PORT);
 
-client.on('ready', () => {
-   https.get('https://musicappa.herokuapp.com/');
-   console.log('ready!');
-});
+/*setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 60000);*/
+
+/*const pm2 = require("pm2");
+pm2.start({
+  name : "max_mem",
+  script : "/app/index.js",
+  exec_interpreter : "node",
+  exec_mode : "fork_mode",
+  max_memory_restart : "20M"
+}, function(err, proc) {
+   console.log(proc)
+});*/
+
 const ownerID = process.env.OWNERID;
+
 client.login(process.env.TOKEN);
 
+client.on("ready", () => {
+  console.log("ready!");
+  client.user
+    .setPresence({
+      activity: {
+        name: "Music",
+        type: "LISTENING"
+      },
+      status: "online"
+    })
+    .then("")
+    .catch(console.error);
+});
+
 client.on("message", msg => {
-  
-  if (msg.content.toLowerCase() == 'ping')
-      msg.channel.send('Pong!');
-  
-  if (msg.content.toLowerCase() == 'play' && msg.author.id == ownerID) {
-       try {
-        msg.member.voice.channel
-          .join()
-          .then(connection => {
-            const ytdl = require('ytdl-core');
-            const broadcast = client.voice.createBroadcast();
-            broadcast.play(ytdl('https://www.youtube.com/watch?v=v3jpVUOi9XU', { filter: 'audioonly' }));
-            const dispatcher = connection.play(broadcast);
-          })
-          .catch(console.log);
-      } catch (err) {
-        msg.channel
-          .send(`Join the VC ${msg.author}`);
-      }
-  }
+  const cmd = msg.content.toLowerCase().trim();
+
+  if (cmd == "ping")
+    msg.channel.send(`Pinging...`).then(m => {
+      var ping = m.createdTimestamp - msg.createdTimestamp;
+      m.edit(`Pong! Your ping is,  **${ping}ms**`);
+    });
+
+  let rn = require("./music_cmds.js");
+  rn.run(msg, cmd, client, Discord, ownerID);
 });
