@@ -22,7 +22,7 @@
   "author": "someone",
   "license": "MIT",
   "repository": {
-    "url": "https://glitch.com/edit/#!/savannah-music-girl"
+    "url": "git+https://github.com/BotCoder17/musx"
   },
   "keywords": [],
   "description": ""
