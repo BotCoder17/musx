@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 const Discord = require("discord.js");
 const client = new Discord.Client({
   disableEveryone: true
 });
-const http = require("http");
+const https = require("https");
 const express = require("express");
 const app = express();
 app.get("/", (request, response) => {
@@ -13,24 +13,29 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 10000);
-
+   https.get('https://musicappa.herokuapp.com/');
+}, 1000);
+const ownerID = process.env.OWNERID;
 client.login(process.env.TOKEN);
-client.on("message", msg => {
 
-  msg.member.voice.channel
-    .join()
-    .then(connection => {
-      const ytdl = require("ytdl-core");
-      const broadcast = client.voice.createBroadcast();
-      broadcast.play(
-        ytdl("https://www.youtube.com/watch?v=v3jpVUOi9XU", {
-          filter: "audioonly"
-        })
-      );
-      const dispatcher = connection.play(broadcast);
-    })
-    .catch(console.error);
+client.on("message", msg => {
   
+  if (msg.content.toLowerCase() == "play" && msg.author.id == ownerID) {
+       try {
+        msg.member.voice.channel
+          .join()
+          .then(connection => {
+            const ytdl = require("ytdl-core");
+            const broadcast = client.voice.createBroadcast();
+            broadcast.play(ytdl("https://www.youtube.com/watch?v=v3jpVUOi9XU"));
+            const dispatcher = connection.play(broadcast);
+          })
+          .catch(console.log);
+      } catch (err) {
+        msg.channel
+          .send(`Join the VC ${msg.author}`)
+          .then(ms => ms.delete(5000))
+          .catch(console.log);
+      }
+  }
 });
