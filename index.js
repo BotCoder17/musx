@@ -6,12 +6,19 @@ const client = new Discord.Client({
 });
 const https = require("https");
 const express = require("express");
+const path = require('path');
 const app = express();
+
 app.get("/", (request, response) => {
-  //console.log(Date.now() + " Ping Received");
   response.sendStatus(200);
 });
 app.listen(process.env.PORT);
+
+app()
+  .use(app.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs');
+
 setInterval(() => {
    https.get('https://musicappa.herokuapp.com/');
 }, 60000);
