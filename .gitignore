@@ -9,4 +9,3 @@ phpunit.xml
 sami.phar
 .idea/
 /phpunit
-/FFmpeg/avconv
