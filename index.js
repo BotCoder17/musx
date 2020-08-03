@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({
-  disableEveryone: true
+  disableMentionse: true
 });
 const http = require("http");
 const express = require("express");
