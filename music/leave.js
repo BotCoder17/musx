@@ -1,6 +1,4 @@
-exports.run = (msg, client, Discord, ownerID) => {
-  if(msg.author.id == ownerID){
+exports.run = (msg, client, Discord) => {
   msg.member.voice.channel.leave();
     msg.channel.send(`Left the voice channel. Cya! ${msg.author}`);
-  }
 };
