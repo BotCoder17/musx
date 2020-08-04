@@ -1,4 +1,4 @@
-exports.run = (msg, client, Discord, ownerID) => {
+exports.run = (msg, client, Discord) => {
        msg.channel.send(`Resetting... **${client.user.tag}**`)
          .then(client.destroy())
          .then(client.login(process.env.TOKEN))
