@@ -10,6 +10,10 @@ exports.run = (msg, cmd, client, Discord, ownerID) => {
         let leave = require("./music/leave.js");
         leave.run(msg, client, Discord, ownerID);
         break;
+      case "res":
+        let rs = require("./music/restart.js");
+        rs.run(msg, client, Discord, ownerID);
+        break;
     }
   }
 };
