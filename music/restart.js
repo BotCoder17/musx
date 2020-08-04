@@ -1,4 +1,4 @@
-exports.run = (msg, client, Discord, cl, ownerID) => {
+exports.run = (msg, client, Discord, ownerID) => {
     if(msg.author.id == ownerID){
        msg.channel.send(`Resetting... **${client.user.tag}**`)
          .then(client.destroy())
