@@ -3,12 +3,12 @@ exports.run = (msg, cmd, client, Discord, ownerID) => {
     switch (cmd) {
       case "play":
         let play = require("./music/play.js");
-        play.run(msg, client, Discord, ownerID);
+        play.run(msg, client, Discord);
         break;
       case "leave":
       case "dc":
         let leave = require("./music/leave.js");
-        leave.run(msg, client, Discord, ownerID);
+        leave.run(msg, client, Discord);
         break;
     }
   }
