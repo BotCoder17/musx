@@ -1,4 +1,4 @@
-exports.run = (msg, client, Discord, ownerID) => {
+exports.run = (msg, client, Discord) => {
   client.on("warn", console.warn);
   client.on("error", errrr => {
     msg.channel.send(
