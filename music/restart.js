@@ -1,5 +1,4 @@
 exports.run = (msg, client, Discord, ownerID) => {
-    if(msg.author.id == ownerID){
        msg.channel.send(`Resetting... **${client.user.tag}**`)
          .then(client.destroy())
          .then(client.login(process.env.TOKEN))
@@ -8,5 +7,4 @@ exports.run = (msg, client, Discord, ownerID) => {
               mes.edit(`**${client.user.tag}** is online!`);
            });
         });
-     }
 }
