@@ -33,6 +33,7 @@
   "author": "someone",
   "license": "MIT",
   "repository": {
+    "type": "git",
     "url": "git+https://www.github.com/BotCoder17/musx/"
   },
   "keywords": [],
