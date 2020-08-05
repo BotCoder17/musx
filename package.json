@@ -20,7 +20,7 @@
     "utf-8-validate": "^5.0.2",
     "zlib-sync": "^0.1.7",
     "erlpack": "^0.1.3",
-    "libsodium-wrappers": "^0.7.5"
+    "libsodium-wrappers": "^0.7.8"
   },
   "engines": {
     "node": "v10.15.3"
