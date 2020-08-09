@@ -14,9 +14,9 @@ exports.run = (msg, client, Discord) => {
           const broadcast = client.voice.createBroadcast();
           broadcast.play(ytdl("https://www.youtube.com/watch?v=v3jpVUOi9XU"));
           const dispatcher = connection.play(broadcast);
+          msg.channel.send(`Let's rock 24/7!`);
         })
         .catch(console.log);
-      msg.channel.send(`Let's rock 24/7!`);
     } catch (err) {
       msg.channel.send(`Join the VC ${msg.author}`);
     }
