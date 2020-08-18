@@ -12,7 +12,7 @@ exports.run = (msg, client, Discord) => {
         .then(connection => {
           const ytdl = require("ytdl-core");
           const broadcast = client.voice.createBroadcast();
-          broadcast.play(ytdl("https://www.youtube.com/watch?v=v3jpVUOi9XU"));
+          broadcast.play(ytdl("https://www.youtube.com/watch?v=5qap5aO4i9A"));
           const dispatcher = connection.play(broadcast);
           msg.channel.send(`Let's rock 24/7!`);
         })
